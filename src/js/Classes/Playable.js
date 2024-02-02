@@ -1,11 +1,7 @@
 
 export class Playable {
-    constrictor() {
-        this.events = {
-            attack: {
-                
-            }
-        };
+    constructor() {
+        this.events = {};
     }
 
     addEvent(event) {

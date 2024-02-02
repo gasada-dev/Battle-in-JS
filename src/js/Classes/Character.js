@@ -5,7 +5,8 @@ import {getRandomInt} from '../ultils.js';
  * Создает экземпляр персонажа.
  * @param {string} name - Имя персонажа.
  * @param {number} damage - Урон, наносимый персонажем.
- * @param {number} hp - Здоровье персонажа.
+ * @param {number} fullHP - Максимальное Здоровье персонажа.
+ * @param {number} currentHP - Текущее Здоровье персонажа.
  * @param {number} armor - Броня персонажа.
  * @param {number} evasion - Шанс уклонения персонажа.
  */
@@ -13,7 +14,8 @@ export class Character {
     constructor(name, damage, hp, armor, evasion) {
         this.name = name;
         this.damage = damage;
-        this.hp = hp;
+        this.fullHP = hp;
+        this.currentHP = hp;
         this.armor = armor;
         this.evasion = evasion;
         this.isDead = false;
@@ -35,7 +37,7 @@ export class Character {
         lossHp = lossHp > 0 ? lossHp : 0;
         console.log(`${this.name} Нанёс ${lossHp} урона ${enemy.name}`);
         enemy.takingDamage(lossHp)
-        if (enemy.hp <= 0) enemy.isDead = true;
+        if (enemy.currentHP <= 0) enemy.isDead = true;
     };
 
     /**
@@ -43,9 +45,9 @@ export class Character {
      * @param {number} damageAmount - Количество урона.
      */
     takingDamage(damageAmount) {
-        this.hp -= damageAmount
+        this.currentHP -= damageAmount
         console.log(`${this.name} потерял ${damageAmount} хп`);
-        console.log(`У ${this.name} осталось ${this.hp} хп`);
+        console.log(`У ${this.name} осталось ${this.currentHP} из ${this.fullHP} хп`);
     };
 
     /**

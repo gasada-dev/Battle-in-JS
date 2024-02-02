@@ -19,12 +19,16 @@ export class Game {
         // while (this.isRunning === "running") {
         // };
     }
+
+    mainMenu() {
+        console.log("1. Поиск монстров");
+        console.log("2. посмотреть инвентарь");
+        console.log("3. Перезагрузить");
+    }
         
     battle() {
         
-        
-        
-                
+
     }
 
     escape() {
