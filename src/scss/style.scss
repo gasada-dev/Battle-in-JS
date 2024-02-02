@@ -1,3 +1,6 @@
+@import "./normalize";
+
 body{
-    background-color: aqua;
+    user-select: none;
+    background-image: url(../image/heroes/arena.jpg);
 }
