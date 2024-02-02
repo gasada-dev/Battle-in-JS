@@ -1,3 +1,5 @@
+import {getRandomInt} from '../ultils.js';
+
 export class Game {
     /**
      * Создает экземпляр игры.
@@ -14,20 +16,28 @@ export class Game {
     start() {
         this.player.attack(this.enemies[0]);
 
-        while (this.isRunning === "running") {
-
-
-
-        };
+        // while (this.isRunning === "running") {
+        // };
     }
         
     battle() {
+        
+        
+        
+                
+    }
 
-        
-        this.player.attack(this.enemies[0]);
-        
-        this.enemies[0].attack(this.player);
-        
+    escape() {
+
+        if (getRandomInt(6) > 4){
+
+            console.log(`${this.player.name} Успешно сбежал`);
+
+        } else{
+            console.log(`${this.player.name} не смог сбежать и получил удар`)
+            this.enemies[0].attack(this.player);
+        }
+
     }
 
         // switch (this.isRunning) {
